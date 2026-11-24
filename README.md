@@ -37,6 +37,19 @@ ESP32 ── I2C(アドレス 0x3C)── CH32V003 ブリッジ ── HT1622 �
 - I2C のプルアップは **3.3V** に接続します(ESP32 の GPIO は 5V 耐性がありません)。
 - ブリッジは起動後 約 3 秒、I2C に応答しません。`begin()` が最大 10 秒待ちます。
 
+## ハードウェア
+
+ホスト(ESP32 など)から I2C で表示できるように、HT1622 を CH32V003 の I2C ブリッジで包みます。
+ブリッジは、I2C で受けたデータを、HT1622 の 3 線式(CS / WR / DATA)に変換します。
+
+```
+ESP32 ──I2C(SDA/SCL, 0x3C)── CH32V003J4M6 ──CS/WR/DATA── HT1622 ── DM8BA10(10桁16セグメントLCD)
+                                   │
+                                   └─ PD1 ── P チャネル MOSFET ── バックライト LED
+```
+
+詳しい内容については、Qiita『[HT1622 の I2C ブリッジ を CH32V003J4M6 で作る](https://qiita.com/nak435/items/7270ffd6962b8627d012)』を参照してください。
+
 ## Arduino
 
 `src/` と同じ階層ごと、Arduino の `libraries/` に置きます(または PlatformIO の `lib_deps`)。
