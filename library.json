@@ -1,0 +1,16 @@
+{
+  "name": "M5Stack Unit 10digit-16segment-LCD",
+  "description": "Library for DM8BA10 10-digit 16-segment LCD (HT1622) via I2C bridge",
+  "keywords": "DM8BA10 HT1622 LCD 16-segment I2C CH32V003",
+  "authors": {
+    "name": "nak435",
+    "url": "https://github.com/nak435"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nak435/M5Unit-10digit-16segment-LCD.git"
+  },
+  "version": "0.1.0",
+  "frameworks": "arduino",
+  "platforms": "espressif32"
+}
